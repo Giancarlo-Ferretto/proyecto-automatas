@@ -46,11 +46,11 @@ public class ParserTParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "' '", "'='", "'('", "')'", "'{'", "'}'", "';'", null, "'var'", 
-		"'const'", null, null, "'int'", "'real'", "'string'", null, null, null, 
-		null, null, null, "'if'", "'else if'", "'else'", "'for'", "'while'", "'=='", 
-		"'!='", "'+='", "'-='", "'*='", "'/='", null, "'sqrt'", "'sin'", "'cos'", 
-		"'print'", "'read'"
+		null, "' '", "'='", "'('", "')'", "'{'", "'}'", "';'", null, "'VAR'", 
+		"'CONST'", null, null, "'PAPA'", "'SACERDOTISA'", "'EMPERATRIZ'", null, 
+		null, null, null, null, null, "'SOL'", "'LUNA_SOL'", "'LUNA'", "'COLGADO'", 
+		"'RUEDA_FORTUNA'", "'=='", "'!='", "'+='", "'-='", "'*='", "'/='", null, 
+		"'TORRE'", "'MUNDO'", "'ESTRELLA'", "'FUERZA'", "'TEMPLANZA'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "ESPACIO", "IGUAL", "PARENTESIS_ABIERTO", "PARENTESIS_CERRADO", 

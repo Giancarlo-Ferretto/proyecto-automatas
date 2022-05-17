@@ -8,24 +8,24 @@ null
 '}'
 ';'
 null
-'var'
-'const'
+'VAR'
+'CONST'
 null
 null
-'int'
-'real'
-'string'
-null
-null
-null
+'PAPA'
+'SACERDOTISA'
+'EMPERATRIZ'
 null
 null
 null
-'if'
-'else if'
-'else'
-'for'
-'while'
+null
+null
+null
+'SOL'
+'LUNA_SOL'
+'LUNA'
+'COLGADO'
+'RUEDA_FORTUNA'
 '=='
 '!='
 '+='
@@ -33,11 +33,11 @@ null
 '*='
 '/='
 null
-'sqrt'
-'sin'
-'cos'
-'print'
-'read'
+'TORRE'
+'MUNDO'
+'ESTRELLA'
+'FUERZA'
+'TEMPLANZA'
 
 token symbolic names:
 null
