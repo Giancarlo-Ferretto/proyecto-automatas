@@ -1,8 +1,13 @@
 lexer grammar LexerT;
 
 //constantes
-ESPACIO			: ' '; 
-IGUAL			: '=' ;
+ESPACIO					: ' '; 
+IGUAL					: '=' ;
+PARENTESIS_ABIERTO		: '(' ;
+PARENTESIS_CERRADO		: ')' ;
+LLAVE_ABIERTA			: '{' ;
+LLAVE_CERRADA			: '}' ;
+PUNTO_COMA				: ';' ;
 
 //variables/constantes
 TIPO_VARIABLE			: TIPO_VARIABLE_VAR|TIPO_VARIABLE_CONST;
@@ -29,12 +34,23 @@ VALOR_DATO_STRING		: '\''(VALOR_DATO|ESPACIO)+'\'' ;
 ASIGNACION_VARIABLE		: IGUAL VALOR_DATO;
 
 //estructura condicional
+CONDICIONAL_IF			: 'if' ;
+CONDICIONAL_ELSE_IF		: 'else if' ;
+CONDICIONAL_ELSE		: 'else' ;
 
 //estructura repetitiva
+CICLO_FOR				: 'for' ;
+CICLO_WHILE				: 'while' ;
 
 //operadores lógicos
+OPERADOR_IGUAL			: '==' ;
+OPERADOR_NO_IGUAL		: '!=' ;
 
 //operadores matemáticos
+OPERADOR_SUMA			: '+=' ;
+OPERADOR_RESTA			: '-=' ;
+OPERADOR_MULT			: '*=' ;
+OPERADOR_DIV			: '/=' ;
 
 //funciones matemáticas
 FUNCION_MATEMATICA 	: FUNCION_RAIZ|FUNCION_SENO|FUNCION_COSENO;
@@ -43,6 +59,5 @@ FUNCION_SENO		: 'sin' ;
 FUNCION_COSENO		: 'cos' ;
 
 //funciones de lectura e impresión
-FUNCION_STRING 		: FUNCION_PRINT|FUNCION_READ;
 FUNCION_PRINT		: 'print' ;
 FUNCION_READ		: 'read' ;
