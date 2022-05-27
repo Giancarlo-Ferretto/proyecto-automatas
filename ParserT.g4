@@ -1,13 +1,15 @@
 grammar ParserT;
 import LexerT;
 
-programa	: linea+ EOF;
+WS : [ \t\n\r] -> skip;
 
-linea 		: declararVariable|funcionLeerImprimir|bloqueCondicional|bloqueRepetitivo
+programa	: linea+;
+
+linea 		: declararVariable|funcionLeerImprimir|bloqueCondicional|bloqueRepetitivo|
 				operadorMatematico|funcionMatematica;
 
 //declarar variables
-declararVariable	: TIPO_VARIABLE TIPO_DATO NOMBRE_VARIABLE ASIGNACION_VARIABLE PUNTO_COMA;
+declararVariable	: TIPO_VARIABLE TIPO_DATO NOMBRE_VARIABLE IGUAL VALOR_DATO PUNTO_COMA;
 
 //expresión (variable o dato)
 expresion			: NOMBRE_VARIABLE|VALOR_DATO;
@@ -15,7 +17,7 @@ expresionNumerica   : TIPO_DATO_INT|TIPO_DATO_REAL|VALOR_DATO_ENTERO|VALOR_DATO_
 
 //funciones leer/imprimir
 funcionLeerImprimir : imprimirVariable|leerVariable;
-imprimirVariable 	: FUNCION_PRINT PARENTESIS_ABIERTO VALOR_DATO PARENTESIS_CERRADO PUNTO_COMA;
+imprimirVariable 	: FUNCION_PRINT PARENTESIS_ABIERTO expresion PARENTESIS_CERRADO PUNTO_COMA;
 leerVariable		: FUNCION_READ PARENTESIS_ABIERTO PARENTESIS_CERRADO PUNTO_COMA;
 
 //funciones matemáticas
