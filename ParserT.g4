@@ -5,15 +5,14 @@ WS : [ \t\n\r] -> skip;
 
 programa	: linea+;
 
-linea 		: declararVariable|funcionLeerImprimir|bloqueCondicional|bloqueRepetitivo|
-				operadorMatematico|funcionMatematica;
+linea 		: declararVariable|funcionLeerImprimir|bloqueCondicional|bloqueRepetitivo|operadorMatematico|funcionMatematica;
 
 //declarar variables
 declararVariable	: TIPO_VARIABLE TIPO_DATO NOMBRE_VARIABLE IGUAL VALOR_DATO PUNTO_COMA;
 
 //expresión (variable o dato)
 expresion			: NOMBRE_VARIABLE|VALOR_DATO;
-expresionNumerica   : TIPO_DATO_INT|TIPO_DATO_REAL|VALOR_DATO_ENTERO|VALOR_DATO_REAL;
+expresionNumerica   : NOMBRE_VARIABLE|TIPO_DATO_INT|TIPO_DATO_REAL|VALOR_DATO_ENTERO|VALOR_DATO_REAL;
 
 //funciones leer/imprimir
 funcionLeerImprimir : imprimirVariable|leerVariable;
@@ -22,16 +21,16 @@ leerVariable		: FUNCION_READ PARENTESIS_ABIERTO PARENTESIS_CERRADO PUNTO_COMA;
 
 //funciones matemáticas
 funcionMatematica	: funcionRaiz|funcionSeno|funcionCoseno;
-funcionRaiz 		: FUNCION_RAIZ PARENTESIS_ABIERTO expresionNumerica PARENTESIS_CERRADO;
-funcionSeno 		: FUNCION_SENO PARENTESIS_ABIERTO expresionNumerica PARENTESIS_CERRADO;
-funcionCoseno 		: FUNCION_COSENO PARENTESIS_ABIERTO expresionNumerica PARENTESIS_CERRADO;
+funcionRaiz 		: FUNCION_RAIZ PARENTESIS_ABIERTO expresion PARENTESIS_CERRADO PUNTO_COMA;
+funcionSeno 		: FUNCION_SENO PARENTESIS_ABIERTO expresion PARENTESIS_CERRADO PUNTO_COMA;
+funcionCoseno 		: FUNCION_COSENO PARENTESIS_ABIERTO expresion PARENTESIS_CERRADO PUNTO_COMA;
 
 //operador matemático
 operadorMatematico 		: operadorSuma|operadorResta|operadorMultiplicacion|operadorDivision;
-operadorSuma				: expresionNumerica OPERADOR_SUMA expresionNumerica;
-operadorResta				: expresionNumerica OPERADOR_RESTA expresionNumerica;
-operadorMultiplicacion		: expresionNumerica OPERADOR_MULT expresionNumerica;
-operadorDivision			: expresionNumerica OPERADOR_DIV expresionNumerica;
+operadorSuma				: expresionNumerica OPERADOR_SUMA expresionNumerica PUNTO_COMA;
+operadorResta				: expresionNumerica OPERADOR_RESTA expresionNumerica PUNTO_COMA;
+operadorMultiplicacion		: expresionNumerica OPERADOR_MULT expresionNumerica PUNTO_COMA;
+operadorDivision			: expresionNumerica OPERADOR_DIV expresionNumerica PUNTO_COMA;
 
 //operador booleano
 operadorBooleano	 	: operadorIgual|operadorNoIgual;

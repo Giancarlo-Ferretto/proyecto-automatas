@@ -1,10 +1,19 @@
 lexer grammar LexerT;
 
+//funciones matemáticas
+FUNCION_RAIZ		: 'TORRE' ;
+FUNCION_SENO		: 'MUNDO' ;
+FUNCION_COSENO		: 'ESTRELLA' ;
+
+//funciones de lectura e impresión
+FUNCION_PRINT		: 'FUERZA' ;
+FUNCION_READ		: 'TEMPLANZA' ;
+
 //constantes
 ESPACIO					: ' '; 
 IGUAL					: '=' ;
 PARENTESIS_ABIERTO		: '(' ;
-PARENTESIS_CERRADO		: ')' ;
+PARENTESIS_CERRADO 		: ')' ;
 LLAVE_ABIERTA			: '{' ;
 LLAVE_CERRADA			: '}' ;
 PUNTO_COMA				: ';' ;
@@ -38,16 +47,6 @@ OPERADOR_SUMA			: '+=' ;
 OPERADOR_RESTA			: '-=' ;
 OPERADOR_MULT			: '*=' ;
 OPERADOR_DIV			: '/=' ;
-
-//funciones matemáticas
-FUNCION_MATEMATICA 	: FUNCION_RAIZ|FUNCION_SENO|FUNCION_COSENO;
-FUNCION_RAIZ		: 'TORRE' ;
-FUNCION_SENO		: 'MUNDO' ;
-FUNCION_COSENO		: 'ESTRELLA' ;
-
-//funciones de lectura e impresión
-FUNCION_PRINT		: 'FUERZA' ;
-FUNCION_READ		: 'TEMPLANZA' ;
 
 //nombre variable
 NOMBRE_VARIABLE	: ([a-z]|[A-Z]|'_')+ ;
