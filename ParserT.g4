@@ -26,7 +26,8 @@ funcionSeno 		: FUNCION_SENO PARENTESIS_ABIERTO expresion PARENTESIS_CERRADO PUN
 funcionCoseno 		: FUNCION_COSENO PARENTESIS_ABIERTO expresion PARENTESIS_CERRADO PUNTO_COMA;
 
 //operador matemático
-operadorMatematico 		: operadorSuma|operadorResta|operadorMultiplicacion|operadorDivision;
+operadorMatematico 			: operadorAsignar|operadorSuma|operadorResta|operadorMultiplicacion|operadorDivision;
+operadorAsignar				: expresionNumerica IGUAL expresionNumerica PUNTO_COMA;
 operadorSuma				: expresionNumerica OPERADOR_SUMA expresionNumerica PUNTO_COMA;
 operadorResta				: expresionNumerica OPERADOR_RESTA expresionNumerica PUNTO_COMA;
 operadorMultiplicacion		: expresionNumerica OPERADOR_MULT expresionNumerica PUNTO_COMA;
@@ -52,7 +53,7 @@ cicloFor			: CICLO_FOR
 						PARENTESIS_ABIERTO 
 							NOMBRE_VARIABLE PUNTO_COMA
 							operadorBooleano PUNTO_COMA
-							operadorMatematico PUNTO_COMA
+							operadorMatematico
 						PARENTESIS_CERRADO
 						LLAVE_ABIERTA
 							programa

@@ -107,6 +107,13 @@ public class ParserTBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitOperadorAsignar(ParserTParser.OperadorAsignarContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitOperadorSuma(ParserTParser.OperadorSumaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

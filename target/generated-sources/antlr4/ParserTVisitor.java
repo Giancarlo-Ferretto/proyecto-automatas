@@ -88,6 +88,12 @@ public interface ParserTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitOperadorMatematico(ParserTParser.OperadorMatematicoContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link ParserTParser#operadorAsignar}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOperadorAsignar(ParserTParser.OperadorAsignarContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link ParserTParser#operadorSuma}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
