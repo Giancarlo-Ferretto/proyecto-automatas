@@ -34,12 +34,6 @@ public interface ParserTVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpresion(ParserTParser.ExpresionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ParserTParser#expresionNumerica}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitExpresionNumerica(ParserTParser.ExpresionNumericaContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link ParserTParser#funcionLeerImprimir}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

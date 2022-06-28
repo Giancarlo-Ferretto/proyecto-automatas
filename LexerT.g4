@@ -54,7 +54,7 @@ NOMBRE_VARIABLE	: ([a-z]|[A-Z]|'_')+ ;
 
 //valor
 VALOR_DATO				: VALOR_DATO_ENTERO|VALOR_DATO_REAL|VALOR_DATO_STRING;
-VALOR_DATO_ENTERO		: ([0-9])+ ; //0,1...9 etc
-VALOR_DATO_REAL			: [0-9]+ ('.' [0-9]+)? ; //0, 0.1, 0.2... etc
+VALOR_DATO_ENTERO		: [0-9]+ ; //0,1...9 etc
+VALOR_DATO_REAL			: [0-9]+ ('.' [0-9]+) ; //0, 0.1, 0.2... etc
 VALOR_DATO_TEXTO		: ([a-z]|[A-Z])+ ;
 VALOR_DATO_STRING		: COMILLA (VALOR_DATO_TEXTO|ESPACIO)+ COMILLA ;
