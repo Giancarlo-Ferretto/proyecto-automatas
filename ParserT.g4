@@ -12,7 +12,7 @@ declararVariable	: TIPO_VARIABLE TIPO_DATO NOMBRE_VARIABLE IGUAL VALOR_DATO PUNT
 
 //expresión (variable o dato)
 expresion			: NOMBRE_VARIABLE|VALOR_DATO;
-expresionNumerica   : NOMBRE_VARIABLE|TIPO_DATO_INT|TIPO_DATO_REAL|VALOR_DATO_ENTERO|VALOR_DATO_REAL;
+expresionNumerica   : NOMBRE_VARIABLE|VALOR_DATO_ENTERO|VALOR_DATO_REAL;
 
 //funciones leer/imprimir
 funcionLeerImprimir : imprimirVariable|leerVariable;
@@ -27,11 +27,11 @@ funcionCoseno 		: FUNCION_COSENO PARENTESIS_ABIERTO expresion PARENTESIS_CERRADO
 
 //operador matemático
 operadorMatematico 			: operadorAsignar|operadorSuma|operadorResta|operadorMultiplicacion|operadorDivision;
-operadorAsignar				: expresionNumerica IGUAL expresionNumerica PUNTO_COMA;
-operadorSuma				: expresionNumerica OPERADOR_SUMA expresionNumerica PUNTO_COMA;
-operadorResta				: expresionNumerica OPERADOR_RESTA expresionNumerica PUNTO_COMA;
-operadorMultiplicacion		: expresionNumerica OPERADOR_MULT expresionNumerica PUNTO_COMA;
-operadorDivision			: expresionNumerica OPERADOR_DIV expresionNumerica PUNTO_COMA;
+operadorAsignar				: NOMBRE_VARIABLE IGUAL expresionNumerica PUNTO_COMA;
+operadorSuma				: NOMBRE_VARIABLE OPERADOR_SUMA expresionNumerica PUNTO_COMA;
+operadorResta				: NOMBRE_VARIABLE OPERADOR_RESTA expresionNumerica PUNTO_COMA;
+operadorMultiplicacion		: NOMBRE_VARIABLE OPERADOR_MULT expresionNumerica PUNTO_COMA;
+operadorDivision			: NOMBRE_VARIABLE OPERADOR_DIV expresionNumerica PUNTO_COMA;
 
 //operador booleano
 operadorBooleano	 	: operadorIgual|operadorNoIgual;

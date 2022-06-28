@@ -151,7 +151,7 @@ public class ParserTParser extends Parser {
 				setState(61); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << FUNCION_RAIZ) | (1L << FUNCION_SENO) | (1L << FUNCION_COSENO) | (1L << FUNCION_PRINT) | (1L << FUNCION_READ) | (1L << TIPO_VARIABLE) | (1L << TIPO_DATO_INT) | (1L << TIPO_DATO_REAL) | (1L << CONDICIONAL_IF) | (1L << CICLO_FOR) | (1L << CICLO_WHILE) | (1L << NOMBRE_VARIABLE) | (1L << VALOR_DATO_ENTERO) | (1L << VALOR_DATO_REAL))) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << FUNCION_RAIZ) | (1L << FUNCION_SENO) | (1L << FUNCION_COSENO) | (1L << FUNCION_PRINT) | (1L << FUNCION_READ) | (1L << TIPO_VARIABLE) | (1L << CONDICIONAL_IF) | (1L << CICLO_FOR) | (1L << CICLO_WHILE) | (1L << NOMBRE_VARIABLE))) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -232,11 +232,7 @@ public class ParserTParser extends Parser {
 				bloqueRepetitivo();
 				}
 				break;
-			case TIPO_DATO_INT:
-			case TIPO_DATO_REAL:
 			case NOMBRE_VARIABLE:
-			case VALOR_DATO_ENTERO:
-			case VALOR_DATO_REAL:
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(67);
@@ -362,8 +358,6 @@ public class ParserTParser extends Parser {
 
 	public static class ExpresionNumericaContext extends ParserRuleContext {
 		public TerminalNode NOMBRE_VARIABLE() { return getToken(ParserTParser.NOMBRE_VARIABLE, 0); }
-		public TerminalNode TIPO_DATO_INT() { return getToken(ParserTParser.TIPO_DATO_INT, 0); }
-		public TerminalNode TIPO_DATO_REAL() { return getToken(ParserTParser.TIPO_DATO_REAL, 0); }
 		public TerminalNode VALOR_DATO_ENTERO() { return getToken(ParserTParser.VALOR_DATO_ENTERO, 0); }
 		public TerminalNode VALOR_DATO_REAL() { return getToken(ParserTParser.VALOR_DATO_REAL, 0); }
 		public ExpresionNumericaContext(ParserRuleContext parent, int invokingState) {
@@ -386,7 +380,7 @@ public class ParserTParser extends Parser {
 			{
 			setState(80);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << TIPO_DATO_INT) | (1L << TIPO_DATO_REAL) | (1L << NOMBRE_VARIABLE) | (1L << VALOR_DATO_ENTERO) | (1L << VALOR_DATO_REAL))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NOMBRE_VARIABLE) | (1L << VALOR_DATO_ENTERO) | (1L << VALOR_DATO_REAL))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -843,13 +837,11 @@ public class ParserTParser extends Parser {
 	}
 
 	public static class OperadorAsignarContext extends ParserRuleContext {
-		public List<ExpresionNumericaContext> expresionNumerica() {
-			return getRuleContexts(ExpresionNumericaContext.class);
-		}
-		public ExpresionNumericaContext expresionNumerica(int i) {
-			return getRuleContext(ExpresionNumericaContext.class,i);
-		}
+		public TerminalNode NOMBRE_VARIABLE() { return getToken(ParserTParser.NOMBRE_VARIABLE, 0); }
 		public TerminalNode IGUAL() { return getToken(ParserTParser.IGUAL, 0); }
+		public ExpresionNumericaContext expresionNumerica() {
+			return getRuleContext(ExpresionNumericaContext.class,0);
+		}
 		public TerminalNode PUNTO_COMA() { return getToken(ParserTParser.PUNTO_COMA, 0); }
 		public OperadorAsignarContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -869,7 +861,7 @@ public class ParserTParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(127);
-			expresionNumerica();
+			match(NOMBRE_VARIABLE);
 			setState(128);
 			match(IGUAL);
 			setState(129);
@@ -890,13 +882,11 @@ public class ParserTParser extends Parser {
 	}
 
 	public static class OperadorSumaContext extends ParserRuleContext {
-		public List<ExpresionNumericaContext> expresionNumerica() {
-			return getRuleContexts(ExpresionNumericaContext.class);
-		}
-		public ExpresionNumericaContext expresionNumerica(int i) {
-			return getRuleContext(ExpresionNumericaContext.class,i);
-		}
+		public TerminalNode NOMBRE_VARIABLE() { return getToken(ParserTParser.NOMBRE_VARIABLE, 0); }
 		public TerminalNode OPERADOR_SUMA() { return getToken(ParserTParser.OPERADOR_SUMA, 0); }
+		public ExpresionNumericaContext expresionNumerica() {
+			return getRuleContext(ExpresionNumericaContext.class,0);
+		}
 		public TerminalNode PUNTO_COMA() { return getToken(ParserTParser.PUNTO_COMA, 0); }
 		public OperadorSumaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -916,7 +906,7 @@ public class ParserTParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(132);
-			expresionNumerica();
+			match(NOMBRE_VARIABLE);
 			setState(133);
 			match(OPERADOR_SUMA);
 			setState(134);
@@ -937,13 +927,11 @@ public class ParserTParser extends Parser {
 	}
 
 	public static class OperadorRestaContext extends ParserRuleContext {
-		public List<ExpresionNumericaContext> expresionNumerica() {
-			return getRuleContexts(ExpresionNumericaContext.class);
-		}
-		public ExpresionNumericaContext expresionNumerica(int i) {
-			return getRuleContext(ExpresionNumericaContext.class,i);
-		}
+		public TerminalNode NOMBRE_VARIABLE() { return getToken(ParserTParser.NOMBRE_VARIABLE, 0); }
 		public TerminalNode OPERADOR_RESTA() { return getToken(ParserTParser.OPERADOR_RESTA, 0); }
+		public ExpresionNumericaContext expresionNumerica() {
+			return getRuleContext(ExpresionNumericaContext.class,0);
+		}
 		public TerminalNode PUNTO_COMA() { return getToken(ParserTParser.PUNTO_COMA, 0); }
 		public OperadorRestaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -963,7 +951,7 @@ public class ParserTParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(137);
-			expresionNumerica();
+			match(NOMBRE_VARIABLE);
 			setState(138);
 			match(OPERADOR_RESTA);
 			setState(139);
@@ -984,13 +972,11 @@ public class ParserTParser extends Parser {
 	}
 
 	public static class OperadorMultiplicacionContext extends ParserRuleContext {
-		public List<ExpresionNumericaContext> expresionNumerica() {
-			return getRuleContexts(ExpresionNumericaContext.class);
-		}
-		public ExpresionNumericaContext expresionNumerica(int i) {
-			return getRuleContext(ExpresionNumericaContext.class,i);
-		}
+		public TerminalNode NOMBRE_VARIABLE() { return getToken(ParserTParser.NOMBRE_VARIABLE, 0); }
 		public TerminalNode OPERADOR_MULT() { return getToken(ParserTParser.OPERADOR_MULT, 0); }
+		public ExpresionNumericaContext expresionNumerica() {
+			return getRuleContext(ExpresionNumericaContext.class,0);
+		}
 		public TerminalNode PUNTO_COMA() { return getToken(ParserTParser.PUNTO_COMA, 0); }
 		public OperadorMultiplicacionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1010,7 +996,7 @@ public class ParserTParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(142);
-			expresionNumerica();
+			match(NOMBRE_VARIABLE);
 			setState(143);
 			match(OPERADOR_MULT);
 			setState(144);
@@ -1031,13 +1017,11 @@ public class ParserTParser extends Parser {
 	}
 
 	public static class OperadorDivisionContext extends ParserRuleContext {
-		public List<ExpresionNumericaContext> expresionNumerica() {
-			return getRuleContexts(ExpresionNumericaContext.class);
-		}
-		public ExpresionNumericaContext expresionNumerica(int i) {
-			return getRuleContext(ExpresionNumericaContext.class,i);
-		}
+		public TerminalNode NOMBRE_VARIABLE() { return getToken(ParserTParser.NOMBRE_VARIABLE, 0); }
 		public TerminalNode OPERADOR_DIV() { return getToken(ParserTParser.OPERADOR_DIV, 0); }
+		public ExpresionNumericaContext expresionNumerica() {
+			return getRuleContext(ExpresionNumericaContext.class,0);
+		}
 		public TerminalNode PUNTO_COMA() { return getToken(ParserTParser.PUNTO_COMA, 0); }
 		public OperadorDivisionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1057,7 +1041,7 @@ public class ParserTParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(147);
-			expresionNumerica();
+			match(NOMBRE_VARIABLE);
 			setState(148);
 			match(OPERADOR_DIV);
 			setState(149);
@@ -1675,19 +1659,19 @@ public class ParserTParser extends Parser {
 		"\3\32\3\32\3\32\3\32\3\32\3\32\3\33\3\33\3\33\3\33\3\33\3\33\3\34\3\34"+
 		"\5\34\u00c5\n\34\3\35\3\35\3\35\3\35\3\35\3\35\3\35\3\35\3\35\3\35\3\35"+
 		"\3\35\3\36\3\36\3\36\3\36\3\36\3\36\3\36\3\36\3\36\2\2\37\2\4\6\b\n\f"+
-		"\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:\2\4\3\2#$\5\2\25\26"+
-		"##%&\2\u00ce\2=\3\2\2\2\4G\3\2\2\2\6I\3\2\2\2\bP\3\2\2\2\nR\3\2\2\2\f"+
-		"V\3\2\2\2\16X\3\2\2\2\20^\3\2\2\2\22f\3\2\2\2\24h\3\2\2\2\26n\3\2\2\2"+
-		"\30t\3\2\2\2\32\177\3\2\2\2\34\u0081\3\2\2\2\36\u0086\3\2\2\2 \u008b\3"+
-		"\2\2\2\"\u0090\3\2\2\2$\u0095\3\2\2\2&\u009c\3\2\2\2(\u009e\3\2\2\2*\u00a2"+
-		"\3\2\2\2,\u00a6\3\2\2\2.\u00ad\3\2\2\2\60\u00af\3\2\2\2\62\u00b5\3\2\2"+
-		"\2\64\u00bc\3\2\2\2\66\u00c4\3\2\2\28\u00c6\3\2\2\2:\u00d2\3\2\2\2<>\5"+
-		"\4\3\2=<\3\2\2\2>?\3\2\2\2?=\3\2\2\2?@\3\2\2\2@\3\3\2\2\2AH\5\6\4\2BH"+
-		"\5\f\7\2CH\5.\30\2DH\5\66\34\2EH\5\32\16\2FH\5\22\n\2GA\3\2\2\2GB\3\2"+
-		"\2\2GC\3\2\2\2GD\3\2\2\2GE\3\2\2\2GF\3\2\2\2H\5\3\2\2\2IJ\7\21\2\2JK\7"+
-		"\24\2\2KL\7#\2\2LM\7\n\2\2MN\7$\2\2NO\7\17\2\2O\7\3\2\2\2PQ\t\2\2\2Q\t"+
-		"\3\2\2\2RS\t\3\2\2S\13\3\2\2\2TW\5\16\b\2UW\5\20\t\2VT\3\2\2\2VU\3\2\2"+
-		"\2W\r\3\2\2\2XY\7\7\2\2YZ\7\13\2\2Z[\5\b\5\2[\\\7\f\2\2\\]\7\17\2\2]\17"+
+		"\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:\2\4\3\2#$\4\2##%&\2"+
+		"\u00ce\2=\3\2\2\2\4G\3\2\2\2\6I\3\2\2\2\bP\3\2\2\2\nR\3\2\2\2\fV\3\2\2"+
+		"\2\16X\3\2\2\2\20^\3\2\2\2\22f\3\2\2\2\24h\3\2\2\2\26n\3\2\2\2\30t\3\2"+
+		"\2\2\32\177\3\2\2\2\34\u0081\3\2\2\2\36\u0086\3\2\2\2 \u008b\3\2\2\2\""+
+		"\u0090\3\2\2\2$\u0095\3\2\2\2&\u009c\3\2\2\2(\u009e\3\2\2\2*\u00a2\3\2"+
+		"\2\2,\u00a6\3\2\2\2.\u00ad\3\2\2\2\60\u00af\3\2\2\2\62\u00b5\3\2\2\2\64"+
+		"\u00bc\3\2\2\2\66\u00c4\3\2\2\28\u00c6\3\2\2\2:\u00d2\3\2\2\2<>\5\4\3"+
+		"\2=<\3\2\2\2>?\3\2\2\2?=\3\2\2\2?@\3\2\2\2@\3\3\2\2\2AH\5\6\4\2BH\5\f"+
+		"\7\2CH\5.\30\2DH\5\66\34\2EH\5\32\16\2FH\5\22\n\2GA\3\2\2\2GB\3\2\2\2"+
+		"GC\3\2\2\2GD\3\2\2\2GE\3\2\2\2GF\3\2\2\2H\5\3\2\2\2IJ\7\21\2\2JK\7\24"+
+		"\2\2KL\7#\2\2LM\7\n\2\2MN\7$\2\2NO\7\17\2\2O\7\3\2\2\2PQ\t\2\2\2Q\t\3"+
+		"\2\2\2RS\t\3\2\2S\13\3\2\2\2TW\5\16\b\2UW\5\20\t\2VT\3\2\2\2VU\3\2\2\2"+
+		"W\r\3\2\2\2XY\7\7\2\2YZ\7\13\2\2Z[\5\b\5\2[\\\7\f\2\2\\]\7\17\2\2]\17"+
 		"\3\2\2\2^_\7\b\2\2_`\7\13\2\2`a\7\f\2\2ab\7\17\2\2b\21\3\2\2\2cg\5\24"+
 		"\13\2dg\5\26\f\2eg\5\30\r\2fc\3\2\2\2fd\3\2\2\2fe\3\2\2\2g\23\3\2\2\2"+
 		"hi\7\4\2\2ij\7\13\2\2jk\5\b\5\2kl\7\f\2\2lm\7\17\2\2m\25\3\2\2\2no\7\5"+
@@ -1695,12 +1679,12 @@ public class ParserTParser extends Parser {
 		"v\7\13\2\2vw\5\b\5\2wx\7\f\2\2xy\7\17\2\2y\31\3\2\2\2z\u0080\5\34\17\2"+
 		"{\u0080\5\36\20\2|\u0080\5 \21\2}\u0080\5\"\22\2~\u0080\5$\23\2\177z\3"+
 		"\2\2\2\177{\3\2\2\2\177|\3\2\2\2\177}\3\2\2\2\177~\3\2\2\2\u0080\33\3"+
-		"\2\2\2\u0081\u0082\5\n\6\2\u0082\u0083\7\n\2\2\u0083\u0084\5\n\6\2\u0084"+
-		"\u0085\7\17\2\2\u0085\35\3\2\2\2\u0086\u0087\5\n\6\2\u0087\u0088\7\37"+
-		"\2\2\u0088\u0089\5\n\6\2\u0089\u008a\7\17\2\2\u008a\37\3\2\2\2\u008b\u008c"+
-		"\5\n\6\2\u008c\u008d\7 \2\2\u008d\u008e\5\n\6\2\u008e\u008f\7\17\2\2\u008f"+
-		"!\3\2\2\2\u0090\u0091\5\n\6\2\u0091\u0092\7!\2\2\u0092\u0093\5\n\6\2\u0093"+
-		"\u0094\7\17\2\2\u0094#\3\2\2\2\u0095\u0096\5\n\6\2\u0096\u0097\7\"\2\2"+
+		"\2\2\2\u0081\u0082\7#\2\2\u0082\u0083\7\n\2\2\u0083\u0084\5\n\6\2\u0084"+
+		"\u0085\7\17\2\2\u0085\35\3\2\2\2\u0086\u0087\7#\2\2\u0087\u0088\7\37\2"+
+		"\2\u0088\u0089\5\n\6\2\u0089\u008a\7\17\2\2\u008a\37\3\2\2\2\u008b\u008c"+
+		"\7#\2\2\u008c\u008d\7 \2\2\u008d\u008e\5\n\6\2\u008e\u008f\7\17\2\2\u008f"+
+		"!\3\2\2\2\u0090\u0091\7#\2\2\u0091\u0092\7!\2\2\u0092\u0093\5\n\6\2\u0093"+
+		"\u0094\7\17\2\2\u0094#\3\2\2\2\u0095\u0096\7#\2\2\u0096\u0097\7\"\2\2"+
 		"\u0097\u0098\5\n\6\2\u0098\u0099\7\17\2\2\u0099%\3\2\2\2\u009a\u009d\5"+
 		"(\25\2\u009b\u009d\5*\26\2\u009c\u009a\3\2\2\2\u009c\u009b\3\2\2\2\u009d"+
 		"\'\3\2\2\2\u009e\u009f\5\b\5\2\u009f\u00a0\7\35\2\2\u00a0\u00a1\5\b\5"+
